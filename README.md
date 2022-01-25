@@ -23,4 +23,5 @@
 # Model Relationships
 
 - One to Many
-  <img src="images/Models.png" alt="one-to-many">
+
+<img src="images/Models.png" alt="one-to-many">
