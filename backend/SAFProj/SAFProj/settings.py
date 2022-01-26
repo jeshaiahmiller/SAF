@@ -13,20 +13,24 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
+IS_PRODUCTION = os.getenv('PRODUCTION') == 'True'
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-
-# BASE_DIR = Path(__file__).resolve().parent.parent
-
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if IS_PRODUCTION:
+  BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+else:
+  BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-3l1=@qdrpw@_dxp6+)raeq000z=sp2of)o(9=abs^5j5_$q+rk'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -82,20 +86,20 @@ WSGI_APPLICATION = 'SAFProj.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
-"""
-DATABASES = {
+if IS_PRODUCTION:
+  DATABASES = { 
+          'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
+  }
+else:
+  DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'saf',
         'USER': 'saf_admin',
         'PASSWORD': 'fantage144',
         'HOST': 'localhost',
-    }
-}
-"""
-DATABASES = { 
-          'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
-}
+      }
+  }
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
@@ -130,11 +134,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-# STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [(os.path.join(BASE_DIR, 'static'))]
-
+if IS_PRODUCTION:
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+    STATIC_URL = '/static/'
+    STATICFILES_DIRS = [(os.path.join(BASE_DIR, 'static'))]
+else:
+    STATIC_URL = 'static/'
+  
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
