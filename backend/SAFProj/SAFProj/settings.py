@@ -14,6 +14,9 @@ from pathlib import Path
 import os
 import dj_database_url
 from dotenv import load_dotenv
+import django_heroku
+
+django_heroku.settings(locals())
 
 load_dotenv()
 
