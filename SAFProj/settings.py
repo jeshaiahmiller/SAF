@@ -19,7 +19,7 @@ from dotenv import load_dotenv
 
 
 load_dotenv()
-
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 IS_PRODUCTION = os.getenv('PRODUCTION') == 'True'
 
@@ -35,7 +35,7 @@ else:
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 
-SECRET_KEY = 'j819s8cs0qj'
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
