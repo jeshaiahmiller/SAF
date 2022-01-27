@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'corsheaders'
+    'corsheaders',
     'django.contrib.staticfiles',
     'SAFApp',
     'django_extensions',
