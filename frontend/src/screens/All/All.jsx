@@ -1,6 +1,6 @@
 import '../All/All.css'
 import { useEffect, useState } from 'react'
-import axios from 'axios'
+import { getBudgets } from '../../services/budgets'
 
 export default function All() {
 
@@ -9,9 +9,9 @@ export default function All() {
 
   useEffect(() => {
     const fetchBudgets = async () => {
-      const allBudgets = await axios.get('http://127.0.0.1:8000')
+      const allBudgets = await getBudgets()
       setBudgets(allBudgets)
-      console.log(allBudgets)
+      console.log('hello')
     }
     fetchBudgets()
     
@@ -21,6 +21,12 @@ export default function All() {
 
   return (
     <div>
+      {budgets.map(budget => (
+            <div>
+              <p>{budget.title}</p>
+            </div>
+          ))
+        }
       <h1> hello</h1>
     </div>
   )
