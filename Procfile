@@ -1,1 +1,1 @@
-web: gunicorn SAFProj.wsgi --preload
+web: gunicorn backend/SAFProj.wsgi --preload
