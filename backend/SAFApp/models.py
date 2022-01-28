@@ -14,7 +14,7 @@ class Budget(models.Model):
 class Expense(models.Model):
   title = models.CharField(max_length=256)
   value = models.CharField(max_length=256)
-  budget = models.ForeignKey(Budget, on_delete=models.CASCADE, related_name='expenses')
+  budget = models.ForeignKey(Budget, on_delete=models.CASCADE, related_name='expenses', null=True, blank=True)
 
 
   def __str__(self):
