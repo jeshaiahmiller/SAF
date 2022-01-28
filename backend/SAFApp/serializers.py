@@ -23,7 +23,7 @@ class BudgetSerializer(serializers.HyperlinkedModelSerializer):
       return budget
     
   def update(self, instance, validated_data):
-        expense_data = validated_data.pop('expenses')
+        expenses_data = validated_data.pop('expenses')
         expenses = (instance.expenses).all()
         expenses = list(expenses)
         instance.title = validated_data.get('title', instance.title)
