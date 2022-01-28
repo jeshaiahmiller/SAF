@@ -11,7 +11,7 @@ export const getBudgets = async () => {
 
 export const getBudget = async id => {
   try {
-      const response = await api.get(`/budgets/${id}`)
+      const response = await api.get(`/budget/${id}`)
       return response.data
   } catch (error) {
       throw error
@@ -20,7 +20,7 @@ export const getBudget = async id => {
 
 export const createBudget = async budget => {
   try {
-      const response = await api.post('/budgets', budget)
+      const response = await api.post('/budget', budget)
       return response.data
   } catch (error) {
       throw error
@@ -29,7 +29,7 @@ export const createBudget = async budget => {
 
 export const updateBudget = async (id, budget) => {
   try {
-      const response = await api.put(`/budgets/${id}`, budget)
+      const response = await api.put(`/budget/${id}`, budget)
       return response.data
   } catch (error) {
       throw error
@@ -38,7 +38,7 @@ export const updateBudget = async (id, budget) => {
 
 export const deleteBudget = async id => {
   try {
-      const response = await api.delete(`/budgets/${id}`)
+      const response = await api.delete(`/budget/${id}`)
       return response.data
   } catch (error) {
       throw error

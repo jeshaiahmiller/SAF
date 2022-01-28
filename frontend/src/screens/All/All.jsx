@@ -1,6 +1,7 @@
 import '../All/All.css'
 import { useEffect, useState } from 'react'
 import { getBudgets } from '../../services/budgets'
+import BudgetPreview from '../../components/BudgetPreview/BudgetPreview'
 
 export default function All() {
 
@@ -11,7 +12,7 @@ export default function All() {
     const fetchBudgets = async () => {
       const allBudgets = await getBudgets()
       setBudgets(allBudgets)
-      console.log('hello')
+      console.log(allBudgets)
     }
     fetchBudgets()
     
@@ -21,13 +22,18 @@ export default function All() {
 
   return (
     <div>
+      <h1> All Budgets</h1>
       {budgets.map(budget => (
             <div>
-              <p>{budget.title}</p>
+          <BudgetPreview
+            id={budget.id}
+            title={budget.title}
+            name={budget.name}
+          />
             </div>
           ))
         }
-      <h1> hello</h1>
+      
     </div>
   )
 }
