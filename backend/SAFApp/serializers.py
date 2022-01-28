@@ -21,3 +21,19 @@ class BudgetSerializer(serializers.HyperlinkedModelSerializer):
       for expense_data in expense_data:
           Expense.objects.create(budget=budget, **expense_data)
       return budget
+    
+  def update(self, instance, validated_data):
+        expense_data = validated_data.pop('expenses')
+        expenses = (instance.expense_musician).all()
+        expenses = list(expenses)
+        instance.title = validated_data.get('title', instance.title)
+        instance.name = validated_data.get('name', instance.name)
+        instance.income = validated_data.get('income', instance.income)
+        instance.save()
+
+        for expense_data in expenses_data:
+            expense = expenses.pop(0)
+            expense.title = expense_data.get('title', expense.title)
+            expense.value = expense_data.get('value', expense.value)
+            expense.save()
+        return instance
