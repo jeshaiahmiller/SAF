@@ -20,7 +20,7 @@ export const getBudget = async id => {
 
 export const createBudget = async budget => {
   try {
-      const response = await api.post('/budget', budget)
+      const response = await api.post('/budget/', budget)
       return response.data
   } catch (error) {
       throw error

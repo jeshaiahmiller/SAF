@@ -23,7 +23,7 @@ export default function Create() {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await createBudget(budget)
-    nav('/all')
+    nav('/budget')
   }
 
   return (

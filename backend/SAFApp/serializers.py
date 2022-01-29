@@ -1,15 +1,28 @@
 from rest_framework import serializers
 from .models import Budget, Expense
+from django.contrib.auth.models import User
 
 
-class ExpenseSerializer(serializers.HyperlinkedModelSerializer):
 
+class ExpenseSerializer(serializers.ModelSerializer):
+  # budget = serializers.StringRelatedField()
   class Meta:
     model = Expense
     fields = ['id', 'title', 'value', 'budget']
     
+class UserSerializer(serializers.ModelSerializer):
+    def create(self, validated_data):
+        return User.objects.create_superuser(**validated_data)
+
+    class Meta:
+        model = User
+        fields = ['username', 'password', 'email']
+        
+class TokenSerializer(serializers.Serializer):
+    token = serializers.CharField(max_length=255)
     
-class BudgetSerializer(serializers.HyperlinkedModelSerializer):
+    
+class BudgetSerializer(serializers.ModelSerializer):
   expenses = ExpenseSerializer(many=True)
   class Meta:
     model = Budget

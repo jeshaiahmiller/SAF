@@ -1,3 +1,9 @@
-.hide {
-  border: 2px solid red;
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+  height: 1.57em;
+  text-align: center;
+  width: 10em;
 }
