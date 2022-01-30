@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import './DTI.css'
 
 
@@ -50,7 +50,7 @@ export default function DTI() {
           placeholder='Select Time Feame'
           onChange={(e) => setTimeFrame(e.target.value)}
         >
-          <option value="" hidden>Select Time Frame</option>
+          <option value="">Select Time Frame</option>
           <option value="Monthly">Monthly</option>
           <option value="Annually">Annually</option>
       </select>

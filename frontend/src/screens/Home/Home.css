@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anton&display=swap");
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hook {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* position: relative; */
+  /* top: px; */
+  /* border: 2px solid blue; */
+  width: 80rem;
+  height: 30rem;
+  background-image: url("https://www.masongroup.ca/wp-content/uploads/2019/09/6-apps-manage-personal-finances-and-budgeting-1000x550.jpg");
+  background-size: cover;
+  background-position-y: -10em;
+  background-repeat: no-repeat;
+}
+.text {
+  /* border: 2px solid red; */
+  font-family: "Abril Fatface", cursive;
+  font-size: 1.5rem;
+  position: relative;
+  top: 20px;
+  width: 70rem;
+  height: 20rem;
+}
+.square_btn {
+  position: relative;
+  width: 16rem;
+  height: 5rem;
+  font-size: 2rem;
+  display: inline-block;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.73);
+  padding: 0.3em 0.5em;
+  background: #00bcd4;
+  border-top: solid 3px #00a3d4;
+  border-bottom: solid 3px #00a3d4;
+  transition: 0.4s;
+}
+.square_btn:hover {
+  text-shadow: -6px 0px 15px rgba(255, 255, 240, 0.83),
+    6px 0px 15px rgba(255, 255, 240, 0.83);
+}
+
+.text-box-2 {
+  display: flex;
+  background-image: url("https://tse4.mm.bing.net/th?id=OIP.pN8UgEpBzIAF2Xziw3-fOQHaEL&pid=Api&P=0&w=290&h=163");
+  background-repeat: no-repeat;
+  background-position-x: 21rem;
+  background-position-y: 2rem;
+  background-size: 65%;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 45rem;
+  height: 20rem;
+  position: relative;
+  top: 10rem;
+  right: 10rem;
+  /* border: 2px solid red; */
+}
+.text-2 {
+  display: flex;
+  position: relative;
+  right: 20px;
+  flex-direction: column;
+}
+#button-2 {
+  position: relative;
+  right: 15px;
+  width: 10rem;
+}
