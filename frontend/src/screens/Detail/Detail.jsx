@@ -65,15 +65,18 @@ export default function Detail() {
     <form onSubmit={handleSubmit}>
       <input name="title" value={expense.title} placeholder="Title" onChange={handleChange} />
         <input name="value" value={expense.value} placeholder="Amount" onChange={handleChange} />
-        <input value={expense.budget} name="budget" placeholder="Budget Number" onChange={handleChange}/>
+        {/* <input value={expense.budget} name="budget" placeholder="Budget Number" onChange={handleChange}/> */}
         <button type="submit">Submit</button>
-        {/* <select
-          value={expense.budget}
+        <select
+          // value={budgetId.id}
           onChange={handleChange}
           name="budget"
+          // options={[budgetId.title]}
         >
-          <option onChange={handleChange} name="budget" value={expense.budget}>{budgetId.title}</option>
-        </select> */}
+          <option onChange={handleChange} name="budget" value="" hidden></option>
+          <option onChange={handleChange} name="budget" value={budgetId.id}>{budgetId.title}</option>
+        </select>
+        {console.log(expense.budget)}
     </form>
     </div>
   )

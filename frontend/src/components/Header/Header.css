@@ -1,0 +1,7 @@
+header {
+  height: 15vh;
+  background-color: rgb(42, 183, 230);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

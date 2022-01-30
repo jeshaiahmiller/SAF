@@ -11,7 +11,8 @@ import DTI from '../src/screens/DTI/DTI'
 import Edit from '../src/screens/Edit/Edit'
 import { useState, useEffect } from 'react'
 import { logOut, verifyUser } from "./services/users";
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import Layout from '../src/components/Layout/Layout'
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
 
   return (
     <div className="App">
+      <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/budget" element={<All />} />
@@ -49,7 +51,8 @@ function App() {
         <Route path="/owned" element={<Owned />} />
         <Route path="/DTI" element={<DTI />} />
         <Route path="/edit/:id" element={<Edit />} />
-      </Routes>
+        </Routes>
+        </Layout>
     </div>
   )
 }

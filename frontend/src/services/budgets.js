@@ -29,7 +29,7 @@ export const createBudget = async budget => {
 
 export const updateBudget = async (id, budget) => {
   try {
-      const response = await api.put(`/budget/${id}`, budget)
+      const response = await api.put(`/budget/${id}/`, budget)
       return response.data
   } catch (error) {
       throw error
@@ -38,7 +38,7 @@ export const updateBudget = async (id, budget) => {
 
 export const deleteBudget = async id => {
   try {
-      const response = await api.delete(`/budget/${id}`)
+      const response = await api.delete(`/budget/${id}/`)
       return response.data
   } catch (error) {
       throw error
