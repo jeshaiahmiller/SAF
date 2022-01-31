@@ -18,23 +18,22 @@ import Layout from '../src/components/Layout/Layout'
 function App() {
 
 
-
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(null);
   const [toggle, setToggle] = useState(false);
   const navigate = useNavigate()
 
 
   useEffect(() => {
     const fetchUser = async () => {
-      const res = await verifyUser();
-      res ? setLoggedIn(true) : setLoggedIn(false);
+      const user = await verifyUser();
+      user ? setLoggedIn(user) : setLoggedIn(null);
     };
     fetchUser();
   }, []);
 
   const handleLogout = async () => {
     await logOut()
-    setLoggedIn(false)
+    setLoggedIn(null)
     navigate('/')
   }
 

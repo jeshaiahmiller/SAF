@@ -2,7 +2,10 @@ import './Header.css'
 import { Link, useNavigate } from 'react-router-dom'
 import { logOut } from '../../services/users'
 
-export default function Header({loggedIn, setLoggedIn}) {
+
+
+
+export default function Header({user, setLoggedIn}) {
 
 
   const nav = useNavigate()
@@ -13,9 +16,27 @@ export default function Header({loggedIn, setLoggedIn}) {
   }
   const handleLogOut = async () => {
     await logOut()
-    setLoggedIn(false)
+    setLoggedIn(null)
     nav('/')
   }
+
+  const authOptions = (
+    <>
+      <h5 className="log-out" onClick={handleLogOut}>Log Out</h5> 
+    </>
+  )
+  const unAuthOptions = (
+    <>
+      <Link className="link" to='login'>Log In</Link>
+    </>
+  )
+  const alwaysOptions = (
+    <>
+        <Link className="link" to="/create">Create</Link>
+        <Link className="link" to='/DTI'>DTI Ratio</Link> 
+    </>
+  )
+
 
   return(
     <header>
@@ -23,14 +44,8 @@ export default function Header({loggedIn, setLoggedIn}) {
         <h1 onClick={handleClick}>Save and Finance</h1>
       </div>
       <div className='links'>
-        <Link className="link" to="/create">Create </Link>
-        <Link className="link" to='/DTI'>DTI Ratio</Link> 
-        {/* {loggedIn === false && */}
-          {/* <Link className="link" to='login'>Log In</Link> */}
-        {/* } */}
-        {/* {loggedIn && */}
-        <h5 className="log-out" onClick={handleLogOut}>Log Out</h5> 
-        {/* } */}
+        {alwaysOptions}
+        {user ? authOptions : unAuthOptions}
       </div>
   </header>
 
