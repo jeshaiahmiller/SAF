@@ -17,4 +17,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', TokenObtainPairView.as_view()),
     path('refresh-token/', TokenRefreshView.as_view()),
+    path('user/signup/', views.RegisterUsersView.as_view(), name="user-signup"),
+    
 ]

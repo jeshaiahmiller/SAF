@@ -1,5 +1,17 @@
 import api from "./apiConfig";
 
+
+export const signUp = async (credentials) => {
+  try {
+    const res = await api.post("/user/signup/", credentials);
+    localStorage.setItem("token", res.data.access);
+    localStorage.setItem("refresh", res.data.refresh);
+    return res;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const logIn = async (credentials) => {
   try {
     const res = await api.post("/login/", credentials);

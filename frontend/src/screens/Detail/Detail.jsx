@@ -48,7 +48,7 @@ export default function Detail() {
   if (!isLoaded) {
     return <h1>Loading...</h1>
   }
- 
+
 
 
   return (
@@ -56,13 +56,13 @@ export default function Detail() {
       <div className='budget-detail'>
       <p id="budget-id">{budgetId.name}'s Budget</p>
       <p id="budget-id">{budgetId.title}</p>
-      
+      <button className="exp-edit-btn" id="edit-bud-btn" onClick={() => nav(`/edit/${id}`)}>Edit Budget</button>
       <div>
         <div className="exp-detail">
       {budgetId.expenses.map(expense => (
         <div className='expenses'>
           <p>{expense.title}</p>
-          <p>{expense.value}</p>
+          <p>${expense.value}</p>
           <button className="exp-edit-btn" onClick={() => nav(`/expense/edit/${expense.id}`)}>Edit</button>
         </div>
           ))

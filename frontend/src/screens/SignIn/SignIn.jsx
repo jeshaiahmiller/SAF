@@ -26,7 +26,7 @@ export default function Login({ setUser }) {
       const user = await logIn(form);
       if (user) {
         setUser(user);
-        navigate("/budget");
+        navigate("/");
       }
     } catch (error) {
       console.error(error);

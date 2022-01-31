@@ -1,5 +1,12 @@
 import api from './apiConfig'
 
+
+const getToken = () => {
+  return new Promise(resolve => {
+      resolve(`Bearer ${localStorage.getItem('token') || null}`)
+  })
+}
+
 export const getBudgets = async () => {
   try {
       const response = await api.get('/budget')
@@ -20,7 +27,15 @@ export const getBudget = async id => {
 
 export const createBudget = async budget => {
   try {
-      const response = await api.post('/budget/', budget)
+    const token = await getToken();
+
+    const headers = {
+      headers: {
+        Authorization: token,
+      },
+    };
+
+      const response = await api.post('/budget/', budget, headers)
       return response.data
   } catch (error) {
       throw error
@@ -29,7 +44,15 @@ export const createBudget = async budget => {
 
 export const updateBudget = async (id, budget) => {
   try {
-      const response = await api.put(`/budget/${id}/`, budget)
+
+    const token = await getToken();
+
+    const headers = {
+      headers: {
+        Authorization: token,
+      },
+    };
+      const response = await api.put(`/budget/${id}/`, budget, headers)
       return response.data
   } catch (error) {
       throw error
@@ -38,7 +61,15 @@ export const updateBudget = async (id, budget) => {
 
 export const deleteBudget = async id => {
   try {
-      const response = await api.delete(`/budget/${id}/`)
+
+    const token = await getToken();
+
+    const headers = {
+      headers: {
+        Authorization: token,
+      },
+    };
+      const response = await api.delete(`/budget/${id}/`, headers)
       return response.data
   } catch (error) {
       throw error

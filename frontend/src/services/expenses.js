@@ -1,5 +1,12 @@
 import api from './apiConfig'
 
+const getToken = () => {
+  return new Promise((resolve) => {
+    resolve(`Bearer ${localStorage.getItem("token") || null}`);
+  });
+};
+
+
 export const getExpenses = async () => {
   try {
       const response = await api.get('/expense')
@@ -20,7 +27,15 @@ export const getExpense = async id => {
 
 export const createExpense = async expense => {
   try {
-      const response = await api.post('/expense/', expense)
+
+    const token = await getToken();
+
+    const headers = {
+      headers: {
+        Authorization: token,
+      },
+    };
+      const response = await api.post('/expense/', expense, headers)
       return response.data
   } catch (error) {
       throw error
@@ -29,7 +44,15 @@ export const createExpense = async expense => {
 
 export const updateExpense = async (id, expense) => {
   try {
-      const response = await api.put(`/expense/${id}/`, expense)
+
+    const token = await getToken();
+
+    const headers = {
+      headers: {
+        Authorization: token,
+      },
+    };
+      const response = await api.put(`/expense/${id}/`, expense, headers)
       return response.data
   } catch (error) {
       throw error
@@ -38,7 +61,15 @@ export const updateExpense = async (id, expense) => {
 
 export const deleteExpense = async id => {
   try {
-      const response = await api.delete(`/expense/${id}`)
+
+    const token = await getToken();
+
+    const headers = {
+      headers: {
+        Authorization: token,
+      },
+    };
+      const response = await api.delete(`/expense/${id}`, headers)
       return response.data
   } catch (error) {
       throw error

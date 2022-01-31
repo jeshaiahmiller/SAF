@@ -8,6 +8,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   width: 50rem;
   font-weight: bolder;
   position: relative;
@@ -67,4 +68,14 @@
 }
 #budget-id {
   font-size: 1.5rem;
+}
+#edit-bud-btn {
+  color: red;
+  text-decoration: underline red;
+  width: 20rem;
+}
+#edit-bud-btn:hover {
+  color: #00bcd4;
+  text-decoration: underline #00bcd4;
+  transform: scale(1.3, 1.3);
 }
