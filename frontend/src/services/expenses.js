@@ -29,7 +29,7 @@ export const createExpense = async expense => {
 
 export const updateExpense = async (id, expense) => {
   try {
-      const response = await api.put(`/expense/${id}`, expense)
+      const response = await api.put(`/expense/${id}/`, expense)
       return response.data
   } catch (error) {
       throw error

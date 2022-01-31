@@ -11,6 +11,7 @@ import Edit from '../src/screens/Edit/Edit'
 import { useState, useEffect } from 'react'
 import { verifyUser } from "./services/users";
 import Layout from '../src/components/Layout/Layout'
+import EditExp from '../src/screens/Edit/EditExp'
 
 
 function App() {
@@ -39,7 +40,8 @@ function App() {
         <Route path="/budget/:id" element={<Detail user={user}/>} />
         <Route path="/create" element={<Create user={user}/>} />
         <Route path="/DTI" element={<DTI />} />
-        <Route path="/edit/:id" element={<Edit user={user}/>} />
+          <Route path="/edit/:id" element={<Edit user={user} />} />
+          <Route path="/expense/edit/:id" element={<EditExp user={user}/>} />
         </Routes>
         </Layout>
     </div>

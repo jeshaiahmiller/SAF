@@ -5,7 +5,6 @@ export const logIn = async (credentials) => {
     const res = await api.post("/login/", credentials);
     localStorage.setItem("token", res.data.access);
     localStorage.setItem("refresh", res.data.refresh);
-    console.log(res);
     return res;
   } catch (error) {
     throw error;
@@ -27,7 +26,6 @@ export const verifyUser = async () => {
   if (refresh) {
     const res = await api.post("/refresh-token/", { refresh });
     localStorage.setItem("token", res.data.access);
-    console.log(res);
     return res;
   }
   return false;

@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react"
-import { getBudget, updateBudget } from "../../services/budgets"
+import { getBudget, updateBudget, deleteBudget } from "../../services/budgets"
 import { useParams, useNavigate } from "react-router-dom"
+import './Edit.css'
 
 
 
 
 export default function Edit() {
 
-
   const [budget, setBudget] = useState({
     title: "",
     name: "",
-    income: "",
+    income: "", 
     expenses: []
   })
   const { id } = useParams()
@@ -40,15 +40,22 @@ export default function Edit() {
     nav(`/budget/${id}`);
   };
 
+  const handleDelete = async (e) => {
+    e.preventDefault()
+    await deleteBudget(id);
+    nav("/budget");
+  };
+
+
   return (
     
-    <div>
-      <form onSubmit={handleSubmit}>
-        <input value={budget.title} name="title" onChange={handleChange} />
-        <input value={budget.name} name="name" onChange={handleChange} />
-        <input value={budget.income} name="income" onChange={handleChange} />
-        <button type="submit">Submit</button>
-
+    <div className="form-div">
+      <form id="form" onSubmit={handleSubmit}>
+        <input className="input" value={budget.title} name="title" onChange={handleChange} />
+        <input className="input" value={budget.name} name="name" onChange={handleChange} />
+        <input className="input" value={budget.income} name="income" onChange={handleChange} />
+        <button className="square_btn" type="submit">Save</button>
+        <button className="square_btn" id="del-btn" onClick={handleDelete} >Delete</button>
     </form>
       
   </div>

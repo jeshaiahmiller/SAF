@@ -49,39 +49,45 @@ export default function Detail() {
   if (!isLoaded) {
     return <h1>Loading...</h1>
   }
+  // const handleClick = () => {
+  //   nav(`/expense/edit/${budgetId.expenses.id}`)
+  // }
+
+
 
   return (
     <div className='detail-parent'>
       <div className='budget-detail'>
       <p>{budgetId.name}'s Budget</p>
       <p>{budgetId.title}</p>
-      </div>
+      
       <div>
+        <div className="exp-detail">
       {budgetId.expenses.map(expense => (
         <div className='expenses'>
           <p>{expense.title}</p>
           <p>{expense.value}</p>
+          <button className="exp-edit-btn" onClick={() => nav(`/expense/edit/${expense.id}`)}>Edit</button>
         </div>
           ))
-      }
+          }
+          </div>
+          </div>
       </div>
       <div className='exp-form'>
     <h3>Add an Expense!</h3>
-    <form onSubmit={handleSubmit}>
-      <input name="title" value={expense.title} placeholder="Title" onChange={handleChange} />
-        <input name="value" value={expense.value} placeholder="Amount" onChange={handleChange} />
-        {/* <input value={expense.budget} name="budget" placeholder="Budget Number" onChange={handleChange}/> */}
-        <button type="submit">Submit</button>
-        <select
-          // value={budgetId.id}
+    <form id="form" onSubmit={handleSubmit}>
+      <input className="input" name="title" value={expense.title} placeholder="Title" onChange={handleChange} />
+        <input className="input" name="value" value={expense.value} placeholder="Amount" onChange={handleChange} />
+          <select
+            className="input"
           onChange={handleChange}
           name="budget"
-          // options={[budgetId.title]}
         >
           <option onChange={handleChange} name="budget" value="" hidden></option>
           <option onChange={handleChange} name="budget" value={budgetId.id}>{budgetId.title}</option>
         </select>
-        {console.log(expense.budget)}
+        <button className="square_btn" type="submit">Submit</button>
         </form>
         </div>
     </div>

@@ -39,7 +39,7 @@ else:
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['save-and-finance.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['https://quizzical-bhaskara-419243.netlify.app', 'save-and-finance.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -74,7 +74,8 @@ CORS_ALLOWED_ORIGINS = [
 "https://save-and-finance.herokuapp.com",
 "http://localhost:8001",
 "http://localhost:8000",
-"http://127.0.0.1:8000"
+"http://127.0.0.1:8000",
+'https://quizzical-bhaskara-419243.netlify.app',
 ]
 
 CORS_ALLOWED_ORIGIN_REGEXES = [
