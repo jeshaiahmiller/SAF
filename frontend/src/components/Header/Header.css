@@ -1,7 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Anton&display=swap");
+
 header {
   height: 15vh;
   background-color: #00bcd4;
   display: flex;
   justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: flex-end;
+  font-family: "Abril Fatface", cursive;
+  /* border: 2px solid pink; */
+}
+.links {
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  font-size: 2rem;
+  width: 30rem;
+}
+.link {
+  text-decoration: none;
+  color: black;
+}
+#title {
+  display: flex;
+  font-size: 2rem;
+  height: 7rem;
+}
+.log-out {
+  font-size: 2rem;
+  font-weight: lighter;
+  position: relative;
+  top: 3.3rem;
 }

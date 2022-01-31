@@ -18,7 +18,7 @@ import Layout from '../src/components/Layout/Layout'
 function App() {
 
 
-  const [leads, setLeads] = useState([]);
+
   const [loggedIn, setLoggedIn] = useState(false);
   const [toggle, setToggle] = useState(false);
   const navigate = useNavigate()

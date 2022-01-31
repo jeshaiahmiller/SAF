@@ -30,7 +30,7 @@
   border-radius: 3px;
   border: 2px solid #e0e0e0;
   outline: none;
-  transition: all 0.4s ease;
+  transition: all 1s ease;
 }
 
 .form-container form input:focus,
@@ -39,7 +39,7 @@
 }
 
 .form-container form input:valid {
-  border: 2px solid #66bb6a;
+  border: 2px solid blue;
 }
 
 .form-container form button {
