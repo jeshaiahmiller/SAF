@@ -1,0 +1,20 @@
+.items {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  width: 100%;
+  border: 2px solid red;
+  border-radius: 10px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 1);
+}
+.bud-title,
+.bud-name {
+  width: 25rem;
+}
+.view {
+  text-decoration: none;
+  color: #00bcd4;
+}
+.view:hover {
+  color: red;
+}

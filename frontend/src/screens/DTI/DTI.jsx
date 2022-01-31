@@ -41,11 +41,12 @@ export default function DTI() {
 
 
   return ( 
-  <div>
-    <form onSubmit={handleSubmit}>
-      <input type="number" placeholder=" Annual Income" value={annuIncome} onChange={(e) => setAnnuIncome(e.target.value)} />
-        <input type="number" placeholder="Monthly Debt" value={debt} onChange={(e) => setDebt(e.target.value)} />
+  <div className="dti-div">
+    <form id="form"onSubmit={handleSubmit}>
+      <input type="number"className="input" placeholder=" Annual Income" value={annuIncome} onChange={(e) => setAnnuIncome(e.target.value)} />
+        <input type="number" className="input" placeholder="Monthly Debt" value={debt} onChange={(e) => setDebt(e.target.value)} />
         <select
+          className='dti-select'
           value={timeFrame}
           placeholder='Select Time Feame'
           onChange={(e) => setTimeFrame(e.target.value)}
@@ -54,9 +55,9 @@ export default function DTI() {
           <option value="Monthly">Monthly</option>
           <option value="Annually">Annually</option>
       </select>
-        <button className={toggleDisplayCalculate ? "" : "display-none"}>Calculate!</button>
+        <button className="dti-btn" id={toggleDisplayCalculate ? "" : "display-none"}>Calculate!</button>
     </form>
-        <button className={toggleDisplayResubmit ? "" : "display-none"} onClick={handleResubmit}>ReSubmit</button>
+        <button className="dti-btn"  id={toggleDisplayResubmit ? "" : "display-none"} onClick={handleResubmit}>ReSubmit</button>
     <div>
         {calculated}
     </div>

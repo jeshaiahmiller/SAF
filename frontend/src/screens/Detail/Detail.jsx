@@ -51,16 +51,21 @@ export default function Detail() {
   }
 
   return (
-    <div>
+    <div className='detail-parent'>
+      <div className='budget-detail'>
+      <p>{budgetId.name}'s Budget</p>
       <p>{budgetId.title}</p>
-      <p>{budgetId.name}</p>
+      </div>
+      <div>
       {budgetId.expenses.map(expense => (
-        <div>
+        <div className='expenses'>
           <p>{expense.title}</p>
           <p>{expense.value}</p>
         </div>
           ))
       }
+      </div>
+      <div className='exp-form'>
     <h3>Add an Expense!</h3>
     <form onSubmit={handleSubmit}>
       <input name="title" value={expense.title} placeholder="Title" onChange={handleChange} />
@@ -77,7 +82,8 @@ export default function Detail() {
           <option onChange={handleChange} name="budget" value={budgetId.id}>{budgetId.title}</option>
         </select>
         {console.log(expense.budget)}
-    </form>
+        </form>
+        </div>
     </div>
   )
 }

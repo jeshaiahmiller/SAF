@@ -74,7 +74,7 @@
 }
 #button-2 {
   position: relative;
-  right: 15px;
+  right: 20px;
   width: 10rem;
 }
 .text-box-3 {
@@ -88,11 +88,10 @@
   top: 10rem;
   left: 35rem;
 }
-.text-3 {
-}
+
 #button-3 {
   position: relative;
   right: 15px;
   width: 13rem;
-  height: 6rem;
+  height: 7rem;
 }

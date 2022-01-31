@@ -2,54 +2,44 @@ import "./App.css";
 import { Routes, Route } from 'react-router-dom'
 import All from '../src/screens/All/All'
 import Home from '../src/screens/Home/Home'
-import SignUp from '../src/screens/SignUp/SignUp'
+import SignOut from './screens/SignOut/SignOut'
 import SignIn from '../src/screens/SignIn/SignIn'
 import Detail from '../src/screens/Detail/Detail'
 import Create from '../src/screens/Create/Create'
-import Owned from '../src/screens/Owned/Owned'
 import DTI from '../src/screens/DTI/DTI'
 import Edit from '../src/screens/Edit/Edit'
 import { useState, useEffect } from 'react'
-import { logOut, verifyUser } from "./services/users";
-import { useNavigate } from 'react-router-dom'
+import { verifyUser } from "./services/users";
 import Layout from '../src/components/Layout/Layout'
 
 
 function App() {
 
 
-  const [loggedIn, setLoggedIn] = useState(null);
-  const [toggle, setToggle] = useState(false);
-  const navigate = useNavigate()
+  const [user, setUser] = useState(null);
 
 
   useEffect(() => {
     const fetchUser = async () => {
       const user = await verifyUser();
-      user ? setLoggedIn(user) : setLoggedIn(null);
+      user ? setUser(user) : setUser(null);
     };
     fetchUser();
   }, []);
 
-  const handleLogout = async () => {
-    await logOut()
-    setLoggedIn(null)
-    navigate('/')
-  }
 
   return (
     <div className="App">
-      <Layout>
+      <Layout user={user} setUser={setUser}>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home user={user}/>} />
         <Route path="/budget" element={<All />} />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/login/" element={<SignIn setLoggedIn={setLoggedIn}/>} />
-        <Route path="/budget/:id" element={<Detail />} />
-        <Route path="/create" element={<Create />} />
-        <Route path="/owned" element={<Owned />} />
+        <Route path="/sign-out" element={<SignOut setUser={setUser}/>} />
+        <Route path="/login/" element={<SignIn setUser={setUser}/>} />
+        <Route path="/budget/:id" element={<Detail user={user}/>} />
+        <Route path="/create" element={<Create user={user}/>} />
         <Route path="/DTI" element={<DTI />} />
-        <Route path="/edit/:id" element={<Edit />} />
+        <Route path="/edit/:id" element={<Edit user={user}/>} />
         </Routes>
         </Layout>
     </div>

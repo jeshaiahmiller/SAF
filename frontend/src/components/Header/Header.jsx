@@ -1,28 +1,16 @@
 import './Header.css'
-import { Link, useNavigate } from 'react-router-dom'
-import { logOut } from '../../services/users'
+import { Link } from 'react-router-dom'
 
 
 
 
-export default function Header({user, setLoggedIn}) {
 
+export default function Header({user, setUser}) {
 
-  const nav = useNavigate()
-  
-
-  const handleClick = () => {
-    nav('/')
-  }
-  const handleLogOut = async () => {
-    await logOut()
-    setLoggedIn(null)
-    nav('/')
-  }
 
   const authOptions = (
     <>
-      <h5 className="log-out" onClick={handleLogOut}>Log Out</h5> 
+      <Link className="link" to="/sign-out">Log Out</Link> 
     </>
   )
   const unAuthOptions = (
@@ -41,11 +29,12 @@ export default function Header({user, setLoggedIn}) {
   return(
     <header>
       <div  id="title">
-        <h1 onClick={handleClick}>Save and Finance</h1>
+        <Link className="link" id="saf" to="/">Save and Finance</Link>
       </div>
       <div className='links'>
         {alwaysOptions}
         {user ? authOptions : unAuthOptions}
+
       </div>
   </header>
 

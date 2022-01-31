@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import { createBudget } from '../../services/budgets'
 import { useNavigate } from 'react-router-dom'
-import './Create.css'
+import  './Create.css'
 
 export default function Create() {
 
@@ -28,13 +28,13 @@ export default function Create() {
   }
 
   return (
-  <div className="form">
-    <form onSubmit={handleSubmit}>
-      <input name="title" value={budget.title} placeholder="title" onChange={handleChange} />
-      <input name="name" value={budget.name} placeholder="name" onChange={handleChange} />
-      <input name="income" value={budget.income} placeholder="income" onChange={handleChange} />
-      <button type="submit">Submit</button>
-      </form>
+  <div className="form-div">
+    <form id="form" onSubmit={handleSubmit}>
+      <input name="title" className="input" value={budget.title} placeholder="Title" onChange={handleChange} />
+      <input name="name" className="input" value={budget.name} placeholder="Name" onChange={handleChange} />
+      <input name="income" className="input" value={budget.income} placeholder="Income" onChange={handleChange} />
+      <button className="square_btn" type="submit">Submit</button>
+    </form>
   </div>
   )
 }

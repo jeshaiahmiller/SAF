@@ -2,11 +2,11 @@
   align-self: center;
   padding: 1em;
   width: 50%;
-  height: 80%;
+  height: 20rem;
   margin: 4em auto;
   border: 2px solid #b0bec5;
   border-radius: 6px;
-  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 1);
   transition: all 2s ease;
 }
 
@@ -14,7 +14,7 @@
   text-align: center;
 }
 
-.form-container form {
+.form-container .form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,41 +22,44 @@
   width: 80%;
 }
 
-.form-container form input {
+.form-container .form .sign-input {
   width: 100%;
   padding: 0.6em 1em;
   margin: 0.5em auto;
   font-size: 1rem;
-  border-radius: 3px;
+  border-radius: 20px;
+  box-shadow: 3px 8px 16px rgba(0, 0, 0, 0.4);
   border: 2px solid #e0e0e0;
   outline: none;
   transition: all 1s ease;
 }
 
-.form-container form input:focus,
-.form-container form input:active {
-  border: 2px solid #82ada9;
+.form-container .form .sign-input:focus,
+.form-container .form .sign-input:active {
+  border: 2px solid #00bcd4;
 }
 
-.form-container form input:valid {
+.form-container .form .sign-input:valid {
   border: 2px solid blue;
 }
 
-.form-container form button {
+.sign-btn {
   width: 50%;
-  margin: 1em auto;
-  background: #56c8d8;
+  height: 2rem;
+  margin: 3em auto;
+  background: #00bcd4;
   border: none;
+  border-radius: 10px;
 }
 
-.form-container form button:hover {
+.form-container .form .sign-btn:hover {
   box-shadow: 3px 8px 16px rgba(0, 0, 0, 0.5);
 }
 
-.form-container form a {
+.form-container .form a {
   margin: auto;
 }
 
-.form-container form label {
+.form-container .form label {
   margin-top: 0.6em;
 }

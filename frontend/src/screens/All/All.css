@@ -1,0 +1,24 @@
+.parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+table {
+  overflow-x: auto;
+  width: 80rem;
+}
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80rem;
+}
+.head-title {
+  position: relative;
+  right: 9rem;
+}
+.head-name {
+  position: relative;
+  right: 2.5rem;
+}

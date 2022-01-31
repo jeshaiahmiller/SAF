@@ -3,7 +3,7 @@ import "./SignIn.css";
 import { logIn } from "../../services/users";
 import { useNavigate } from "react-router-dom";
 
-export default function Login({ setLoggedIn }) {
+export default function Login({ setUser }) {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
@@ -25,7 +25,7 @@ export default function Login({ setLoggedIn }) {
     try {
       const user = await logIn(form);
       if (user) {
-        setLoggedIn(true);
+        setUser(user);
         navigate("/budget");
       }
     } catch (error) {
@@ -42,9 +42,10 @@ export default function Login({ setLoggedIn }) {
   return (
     <div className="form-container">
       <h3>Log In</h3>
-      <form onSubmit={handleLogin}>
+      <form className="form" onSubmit={handleLogin}>
         <label>Username</label>
         <input
+          className="sign-input"
           required
           type="text"
           name="username"
@@ -54,6 +55,7 @@ export default function Login({ setLoggedIn }) {
         />
         <label>Password</label>
         <input
+          className="sign-input"
           required
           name="password"
           value={password}
@@ -61,7 +63,7 @@ export default function Login({ setLoggedIn }) {
           placeholder="Password"
           onChange={handleChange}
         />
-        <button type='submit'>Submit</button>
+        <button className="sign-btn" type='submit'>Submit</button>
       </form>
     </div>
   );

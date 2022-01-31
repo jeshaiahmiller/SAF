@@ -1,9 +1,23 @@
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  text-indent: 1px;
-  text-overflow: "";
-  height: 1.57em;
-  text-align: center;
-  width: 10em;
+.detail-parent {
+  display: flex;
+  justify-content: space-around;
+  border: 2px solid blue;
+}
+
+.budget-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 2px solid red;
+  font-size: 3rem;
+  font-weight: bolder;
+}
+.expenses {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  width: 100%;
+  border: 2px solid red;
+  border-radius: 10px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 1);
 }

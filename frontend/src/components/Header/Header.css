@@ -25,12 +25,19 @@ header {
 }
 #title {
   display: flex;
+  align-items: flex-end;
   font-size: 2rem;
   height: 7rem;
 }
+
 .log-out {
   font-size: 2rem;
   font-weight: lighter;
   position: relative;
   top: 3.3rem;
+}
+#saf {
+  font-size: 4rem;
+  position: relative;
+  top: 1.14rem;
 }
