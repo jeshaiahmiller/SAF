@@ -1,6 +1,12 @@
 #display-none {
   display: none;
 }
+.dti-parent {
+  border: 2px solid red;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
 .dti-div {
   display: flex;
   flex-direction: column;
@@ -13,8 +19,7 @@
   border-radius: 6px;
   box-shadow: 2px 4px 10px rgba(0, 0, 0, 1);
   transition: all 2s ease;
-  position: relative;
-  right: 20rem;
+  /* position: relative; */
 }
 #form {
   display: flex;
@@ -48,4 +53,11 @@
   transform: 0.5s translateY(4px);
   box-shadow: 0px 0px 1px rgba(0, 0, 0, 1.5);
   border-bottom: none;
+}
+.result {
+  border: 2px solid red;
+  position: relative;
+  right: 10rem;
+  height: 20rem;
+  width: 30rem;
 }

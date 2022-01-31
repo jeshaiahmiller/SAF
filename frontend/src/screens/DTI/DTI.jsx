@@ -39,11 +39,11 @@ export default function DTI() {
     setToggleDisplayResubmit((curr) => !curr)
   }
 
-
-  return ( 
+  return (
+<div className="dti-parent">
   <div className="dti-div">
     <form id="form"onSubmit={handleSubmit}>
-      <input type="number"className="input" placeholder=" Annual Income" value={annuIncome} onChange={(e) => setAnnuIncome(e.target.value)} />
+        <input type="number"className="input" placeholder=" Annual Income" value={annuIncome} onChange={(e) => setAnnuIncome(e.target.value)} />
         <input type="number" className="input" placeholder="Monthly Debt" value={debt} onChange={(e) => setDebt(e.target.value)} />
         <select
           className='dti-select'
@@ -59,8 +59,11 @@ export default function DTI() {
     </form>
         <button className="dti-btn"  id={toggleDisplayResubmit ? "" : "display-none"} onClick={handleResubmit}>ReSubmit</button>
     <div>
-        {calculated}
     </div>
-  </div>
+      </div>
+      <div className="result">
+        <h3 id={toggleDisplayResubmit ? "" : "display-none"}>Your Debt to Income Ratio is {calculated}%</h3>
+        </div>
+</div>
   )
 }

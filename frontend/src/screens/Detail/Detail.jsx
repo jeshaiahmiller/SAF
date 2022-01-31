@@ -41,25 +41,21 @@ export default function Detail() {
 
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
     await createExpense(expense)
-    nav('/budget')
+    nav(`/budget/${id}`)
   }
 
   if (!isLoaded) {
     return <h1>Loading...</h1>
   }
-  // const handleClick = () => {
-  //   nav(`/expense/edit/${budgetId.expenses.id}`)
-  // }
-
+ 
 
 
   return (
     <div className='detail-parent'>
       <div className='budget-detail'>
-      <p>{budgetId.name}'s Budget</p>
-      <p>{budgetId.title}</p>
+      <p id="budget-id">{budgetId.name}'s Budget</p>
+      <p id="budget-id">{budgetId.title}</p>
       
       <div>
         <div className="exp-detail">
